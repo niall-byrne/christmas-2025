@@ -7,6 +7,8 @@ import Answer from "@/components/answer";
 import useRiddleFetcher from "@/components/hooks/useRiddleFetcher";
 import useRiddleChecker from "@/components/hooks/useRiddleChecker";
 import PlayAgain from "@/components/buttons/playAgain";
+import OutOfRiddles from "@/components/errors/outOfRiddles";
+import Malfunction from "@/components/errors/malfunction";
 
 export default function Riddle({ personId }: { personId: string }) {
   const toggle = useToggle();
@@ -22,22 +24,11 @@ export default function Riddle({ personId }: { personId: string }) {
   if (riddleChecker.isLoading()) return null;
 
   if (riddleFetcher.isOutOfRiddles()) {
-    return (
-      <Dialogue
-        title="Santa's AI"
-        messages={["I have been defeated !", " ", "Great job human !"]}
-      >
-        <></>
-      </Dialogue>
-    );
+    return <OutOfRiddles />;
   }
 
   if (riddleFetcher.riddle === null) {
-    return (
-      <Dialogue title="Santa's AI" messages={["Malfunction !"]}>
-        <></>
-      </Dialogue>
-    );
+    return <Malfunction />;
   }
 
   if (riddleChecker.recipient) {

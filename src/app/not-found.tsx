@@ -1,5 +1,5 @@
-import FourOhFour from "@/components/404";
 import Background from "@/components/background";
+import FourOhFour from "@/components/errors/404";
 
 export default async function NotFound() {
   return (
