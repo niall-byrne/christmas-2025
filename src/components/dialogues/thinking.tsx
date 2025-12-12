@@ -1,5 +1,5 @@
-import { Spinner } from "@chakra-ui/react";
 import Dialogue from "@/components/dialogues/base";
+import { Spinner } from "@chakra-ui/react";
 
 export default function Thinking() {
   return (

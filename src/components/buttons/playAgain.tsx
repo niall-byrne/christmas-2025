@@ -1,7 +1,7 @@
 "use client";
 
-import { Button } from "@chakra-ui/react";
 import { useCallback, useEffect } from "react";
+import { Button } from "@chakra-ui/react";
 
 export default function PlayAgain({ onClick }: { onClick: () => void }) {
   const onKeyDown = useCallback(

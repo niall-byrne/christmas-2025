@@ -1,5 +1,5 @@
-import { RiddleResponseType } from "@/app/api/riddle/[slug]/types";
 import { createContext, useState } from "react";
+import { RiddleResponseType } from "@/app/api/riddle/[slug]/types";
 import useRiddleFilter from "@/components/hooks/useRiddleFilter";
 
 export const RiddleFetcherContext = createContext<{

@@ -1,9 +1,9 @@
 "use client";
 
 import Background from "@/components/background";
+import Introduction from "@/components/dialogues/introduction";
 import Riddle from "@/components/game";
 import useToggle from "@/components/hooks/useToggle";
-import Introduction from "@/components/dialogues/introduction";
 
 export default function Main({ personId }: { personId: string }) {
   const toggle = useToggle();
