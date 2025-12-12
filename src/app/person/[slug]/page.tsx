@@ -1,6 +1,6 @@
-import Quiz from "@/components/quiz";
+import Main from "@/components/main";
 
-export default async function QuizPage({
+export default async function GamePage({
   params,
 }: {
   params: Promise<{ slug: string }>;
@@ -9,7 +9,7 @@ export default async function QuizPage({
 
   return (
     <div>
-      <Quiz personId={slug} />
+      <Main personId={slug} />
     </div>
   );
 }
