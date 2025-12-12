@@ -1,13 +1,13 @@
 "use client";
 
-import useRiddleFetcher from "@/components/hooks/useRiddleFetcher";
-import useRiddleChecker from "@/components/hooks/useRiddleChecker";
-import OutOfRiddles from "@/components/errors/outOfRiddles";
-import Malfunction from "@/components/errors/malfunction";
-import Thinking from "@/components/dialogues/thinking";
-import Winner from "@/components/dialogues/winner";
-import Whoops from "@/components/dialogues/whoops";
 import Guess from "@/components/dialogues/guess";
+import Malfunction from "@/components/errors/malfunction";
+import OutOfRiddles from "@/components/errors/outOfRiddles";
+import Thinking from "@/components/dialogues/thinking";
+import Whoops from "@/components/dialogues/whoops";
+import Winner from "@/components/dialogues/winner";
+import useRiddleChecker from "@/components/hooks/useRiddleChecker";
+import useRiddleFetcher from "@/components/hooks/useRiddleFetcher";
 
 export default function Game({ personId }: { personId: string }) {
   const riddleChecker = useRiddleChecker(personId);
