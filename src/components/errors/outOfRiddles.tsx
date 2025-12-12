@@ -1,4 +1,4 @@
-import Dialogue from "@/components/dialogue";
+import Dialogue from "@/components/dialogues/base";
 
 export default function OutOfRiddles() {
   return (

@@ -1,6 +1,6 @@
 "use client";
 
-import Dialogue from "@/components/dialogue";
+import Dialogue from "@/components/dialogues/base";
 
 export default function FourOhFour() {
   return (
