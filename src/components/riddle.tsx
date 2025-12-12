@@ -9,6 +9,7 @@ import useRiddleChecker from "@/components/hooks/useRiddleChecker";
 import PlayAgain from "@/components/buttons/playAgain";
 import OutOfRiddles from "@/components/errors/outOfRiddles";
 import Malfunction from "@/components/errors/malfunction";
+import { Spinner } from "@chakra-ui/react";
 
 export default function Riddle({ personId }: { personId: string }) {
   const toggle = useToggle();
@@ -20,8 +21,13 @@ export default function Riddle({ personId }: { personId: string }) {
     riddleFetcher.reset(riddleFetcher.riddle!.id, personId);
   };
 
-  if (riddleFetcher.isLoading()) return null;
-  if (riddleChecker.isLoading()) return null;
+  if (riddleFetcher.isLoading() || riddleChecker.isLoading()) {
+    return (
+      <Dialogue title="AI thinking ..." messages={[" "]}>
+        <Spinner marginBottom={10} size={"lg"} />
+      </Dialogue>
+    );
+  }
 
   if (riddleFetcher.isOutOfRiddles()) {
     return <OutOfRiddles />;
@@ -57,27 +63,27 @@ export default function Riddle({ personId }: { personId: string }) {
     );
   }
 
+  if (toggle.value) {
+    return (
+      <Dialogue
+        title="Santa's AI"
+        messages={[
+          "Thank you human !",
+          " ",
+          "If you can answer my riddle, I'll tell you who the card is addressed to.",
+        ]}
+      >
+        <Confirmation onClick={toggle.flip} />
+      </Dialogue>
+    );
+  }
+
   return (
-    <div>
-      {toggle.value ? (
-        <Dialogue
-          title="Santa's AI"
-          messages={[
-            "Thank you human !",
-            " ",
-            "If you can answer my riddle, I'll tell you who the card is addressed to.",
-          ]}
-        >
-          <Confirmation onClick={toggle.flip} />
-        </Dialogue>
-      ) : (
-        <Dialogue title="Hint" messages={riddleFetcher.riddle.hint}>
-          <Answer
-            onGuess={riddleChecker.guess.attempt}
-            riddleId={riddleFetcher.riddle.id}
-          />
-        </Dialogue>
-      )}
-    </div>
+    <Dialogue title="Hint" messages={riddleFetcher.riddle.hint}>
+      <Answer
+        onGuess={riddleChecker.guess.attempt}
+        riddleId={riddleFetcher.riddle.id}
+      />
+    </Dialogue>
   );
 }
