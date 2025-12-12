@@ -1,9 +1,9 @@
-import { riddles, RiddleType } from "@/data/riddles";
-import { people, PersonType } from "@/data/people";
 import {
   AnswerDataType,
   RiddleResponseType,
 } from "@/app/api/riddle/[slug]/types";
+import { PersonType, people } from "@/data/people";
+import { RiddleType, riddles } from "@/data/riddles";
 import {
   correct,
   incorrect,

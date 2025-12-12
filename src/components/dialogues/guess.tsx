@@ -1,5 +1,5 @@
-import Dialogue from "@/components/dialogues/base";
 import Answer from "@/components/forms/answer";
+import Dialogue from "@/components/dialogues/base";
 
 export default function Guess({
   hint,

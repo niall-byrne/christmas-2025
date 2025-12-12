@@ -1,5 +1,5 @@
-import Dialogue from "@/components/dialogues/base";
 import Confirmation from "@/components/buttons/confirmation";
+import Dialogue from "@/components/dialogues/base";
 
 export default function Instructions({ onClick }: { onClick: () => void }) {
   return (

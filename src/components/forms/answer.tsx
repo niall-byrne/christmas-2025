@@ -1,9 +1,8 @@
 "use client";
 
-import { Flex, Field } from "@chakra-ui/react";
-import { Input } from "@chakra-ui/react";
-import { useState } from "react";
+import { Field, Flex, Input } from "@chakra-ui/react";
 import Submit from "@/components/buttons/submit";
+import { useState } from "react";
 
 export default function Answer({
   onGuess,
