@@ -1,4 +1,5 @@
 import { Box, Center, Flex, Heading, Span } from "@chakra-ui/react";
+import { useLayoutEffect, useRef } from "react";
 
 export default function Dialogue({
   children,
@@ -9,6 +10,17 @@ export default function Dialogue({
   title: string;
   messages: string[];
 }) {
+  const elementRef = useRef<HTMLDivElement>(null);
+
+  useLayoutEffect(() => {
+    if (elementRef.current) {
+      elementRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  }, []);
+
   return (
     <Box position={"absolute"} top={0} left={0} zIndex="10" w="full" h="full">
       <Flex minHeight="100vh" alignItems={"center"}>
@@ -18,6 +30,7 @@ export default function Dialogue({
             bg={"grey"}
             borderColor={"black"}
             borderWidth="3px"
+            ref={elementRef}
           >
             <Center margin="10px">
               <div>
