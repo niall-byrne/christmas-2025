@@ -84,7 +84,7 @@ export async function POST(
   }
 
   if (checkGuess(guess, riddle)) {
-    return correct(person.name);
+    return correct(person.name, person.deliveryNote);
   }
 
   return incorrect();

@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 export default function useRiddleChecker(personId: string) {
   const [guess, setGuess] = useState("");
   const [loading, setLoading] = useState(false);
-  const [recipient, setRecipent] = useState("");
+  const [response, setResponse] = useState<GuessResponseType>({});
   const [riddleId, setRiddleId] = useState("");
 
   const guessAttempt = (answer: string, riddleId: string) => {
@@ -18,7 +18,7 @@ export default function useRiddleChecker(personId: string) {
 
   const guessReset = () => {
     setGuess("");
-    setRecipent("");
+    setResponse({});
     setLoading(false);
   };
 
@@ -41,7 +41,7 @@ export default function useRiddleChecker(personId: string) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         const result: GuessResponseType = await response.json();
-        setRecipent(result.for!);
+        setResponse(result);
       } catch {
         /* pass */
       } finally {
@@ -63,6 +63,6 @@ export default function useRiddleChecker(personId: string) {
       value: guess,
     },
     isLoading,
-    recipient,
+    response,
   };
 }

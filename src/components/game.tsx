@@ -30,11 +30,11 @@ export default function Game({ personId }: { personId: string }) {
     return <Malfunction />;
   }
 
-  if (riddleChecker.recipient) {
-    return <Winner onClick={playAgain} recipient={riddleChecker.recipient} />;
+  if (riddleChecker.response.for) {
+    return <Winner onClick={playAgain} response={riddleChecker.response} />;
   }
 
-  if (!riddleChecker.recipient && riddleChecker.guess.value) {
+  if (!riddleChecker.response.for && riddleChecker.guess.value) {
     return <Whoops onClick={riddleChecker.guess.reset} />;
   }
 

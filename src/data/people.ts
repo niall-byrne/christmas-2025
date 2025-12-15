@@ -1,6 +1,7 @@
 export type PersonType = {
   name: string;
   id: string;
+  deliveryNote?: string;
 };
 
 export const people: PersonType[] = [

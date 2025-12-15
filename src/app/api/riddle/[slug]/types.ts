@@ -9,4 +9,5 @@ export type GuessDataType = {
 
 export type GuessResponseType = {
   for?: string;
+  deliveryNote?: string;
 };

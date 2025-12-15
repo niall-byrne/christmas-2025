@@ -1,5 +1,12 @@
-export const correct = (recipient: string) =>
-  Response.json({ for: recipient }, { status: 200 });
+export const correct = (
+  recipient: string,
+  deliveryNote: string | undefined
+) => {
+  if (deliveryNote) {
+    return Response.json({ for: recipient, deliveryNote }, { status: 200 });
+  }
+  return Response.json({ for: recipient }, { status: 200 });
+};
 
 export const noSuchPerson = () =>
   Response.json({ error: "No such person !" }, { status: 404 });
